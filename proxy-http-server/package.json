@@ -1,5 +1,5 @@
 {
-  "name": "proxy-server",
+  "name": "proxy-http-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

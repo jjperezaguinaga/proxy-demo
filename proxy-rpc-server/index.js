@@ -1,7 +1,7 @@
-import express from 'express'
-import proxy from 'express-http-proxy'
+const express = require('express')
+const proxy = require('express-http-proxy')
 
 const app = express()
-app.use('/', proxy(`https://json-server.jjperezaguinaga.now.sh`))
+app.use('/', proxy(`https://mainnet.infura.io/v3/`))
 
 export default app

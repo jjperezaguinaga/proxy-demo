@@ -11,11 +11,11 @@ the calls from the `client`
 
 ## Client
 
-`https://client-http.jjperezaguinaga.now.sh/api?url=https://proxy-server.jjperezaguinaga.now.sh/echo?song=La%20Cancion`
+`https://client-http.jjperezaguinaga.now.sh/api?url=https://proxy-http-server.jjperezaguinaga.now.sh/echo?song=La%20Cancion`
 
 ## Proxy
 
-`https://proxy-server.jjperezaguinaga.now.sh/echo?song=La%20Cancion`
+`https://proxy-http-server.jjperezaguinaga.now.sh/echo?song=La%20Cancion`
 
 ## Server
 

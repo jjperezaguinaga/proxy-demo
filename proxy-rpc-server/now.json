@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "proxy-server",
+  "name": "proxy-rpc-server",
   "builds": [
       { "src": "index.js", "use": "@now/node" }
   ],

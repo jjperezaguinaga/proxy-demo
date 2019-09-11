@@ -1,6 +1,6 @@
 import Web3 from 'web3'
 
-const web3 = new Web3(`https://mainnet.infura.io/${process.env.INFURA_PROJECT_ID}`)
+const web3 = new Web3(`http://localhost:3000/${process.env.INFURA_PROJECT_ID}`)
 
 const app = async (req, res) => {
   const blockNumber = await web3.eth.getBlockNumber();
