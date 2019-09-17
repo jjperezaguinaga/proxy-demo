@@ -1,18 +1,20 @@
 FROM node:dubnium-alpine
 
-ENV YARN_CACHE_FOLDER /yarn
-WORKDIR /app/
+ENV NODE_ENV=production
 
-# Add entrypoint script to handle yarn cache
-RUN mkdir -p $YARN_CACHE_FOLDER
-COPY ./docker-entrypoint.sh /
-RUN chmod +x /docker-entrypoint.sh
-ENTRYPOINT ["/docker-entrypoint.sh"]
+RUN apk add --no-cache tini
 
-ADD . .
+WORKDIR /node
+COPY package.json yarn.lock ./
+RUN mkdir app && chown -R node:node .
+USER node
+RUN yarn install && yarn cache clean --force
+
+WORKDIR /node/app
+COPY --chown=node:node . .
 
 EXPOSE 3000
 EXPOSE 3001
 
-CMD ["yarn", "start"]
-
+ENTRYPOINT ["/sbin/tini", "-e", "143", "--"]
+CMD ["node", "server.js"]
