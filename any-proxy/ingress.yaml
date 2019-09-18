@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    run: anyproxy-deploy
+  name: anyproxy-deploy
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 3000
+    name: proxy
+  - port: 3001
+    protocol: TCP
+    targetPort: 3001
+    name: admin
+  selector:
+    run: anyproxy-deploy
+  type: LoadBalancer
+status:
+  loadBalancer: {}

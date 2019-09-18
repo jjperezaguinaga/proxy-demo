@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: anyproxy-deploy
+  name: anyproxy-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: anyproxy-deploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: anyproxy-deploy
+    spec:
+      containers:
+      - image: gcr.io/web3-252611/anyproxy:latest
+        name: anyproxy-deploy
+        ports:
+        - containerPort: 3000
+          name: proxy
+        - containerPort: 3001
+          name: admin
+        resources: {}
+status: {}
